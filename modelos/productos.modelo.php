@@ -8,30 +8,25 @@ class ModeloProductos
     /*=============================================
 MOSTRAR DATOS
 =============================================*/
-    static public function mdlMostrarProductos($tabla, $item, $valor)
-    {
+static public function mdlMostrarProductos($tabla, $item, $valor)
+{
+    try {
         if ($item != null) {
-            //pedimos un solo registro
-            try {
-                $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
-                //enlace de parametros
-                $stmt->bindParam(":" . $item, $valor, PDO::PARAM_INT);
-                $stmt->execute();
-                return $stmt->fetch(PDO::FETCH_ASSOC);
-            } catch (Exception $e) {
-                return "Error: " . $e->getMessage();
-            }
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+            $stmt->bindParam(":" . $item, $valor, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
         } else {
-            // pedimos todos los registros
-            try {
-                $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
-                $stmt->execute();
-                return $stmt->fetchAll(PDO::FETCH_ASSOC);
-            } catch (Exception $e) {
-                "Error: " . $e->getMessage();
-            }
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result ? $result : []; // Retorna un array vacío si no hay resultados
         }
+    } catch (Exception $e) {
+        return "Error: " . $e->getMessage();
     }
+}
+
 
     // Agregar datos
 
