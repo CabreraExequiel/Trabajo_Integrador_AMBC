@@ -1,7 +1,7 @@
 <?php
-$categorias = ControladorCategorias::ctrMostrarCategorias(null, null);
+$producto = ControladorProductos::ctrMostrarProductos(null, null);
 //echo "<pre>";
-//print_r($categorias);
+//print_r($entrenadores);
 //echo "</pre>";
 ?>
 
@@ -35,9 +35,9 @@ $categorias = ControladorCategorias::ctrMostrarCategorias(null, null);
 
                     <option value="">Seleccione una opción</option>
                         <?php
-                        foreach ($categorias as $key => $value) { ?>
+                        foreach ($producto as $key => $value) { ?>
 
-                            <option value="<?php echo $value["id_categoria"]; ?>"><?php echo $value["nombre_categoria"]; ?></option>
+                            <option value="<?php echo $value["id_producto"]; ?>"><?php echo $value["nombre"]; ?></option>
 
                         <?php  } ?>
 

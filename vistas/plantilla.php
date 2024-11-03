@@ -59,7 +59,7 @@ $url = PlantillaControlador::url()
                             $pagina[0] == "productos" ||
                             $pagina[0] == "agregar" ||
                             $pagina[0] == "editar" ||
-                            $pagina[0] == "categorias"
+                            $pagina[0] == "entrenadores"
                             ) {
 
                             include "vistas/modulos/" . $pagina[0] . ".php";
