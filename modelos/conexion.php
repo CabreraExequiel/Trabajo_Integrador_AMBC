@@ -3,7 +3,7 @@
 class Conexion
 {
     const HOST = "localhost";
-    const DBNAME = "db_tp17";
+    const DBNAME = "gimnasiodb";
     const USER = "root";
     const PASSWORD = "";
     

@@ -34,15 +34,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="productos">
-                        <i data-feather="home"></i>                     
-                        <span> Productos </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="categorias">
-                        <i data-feather="home"></i>                     
-                        <span> Categorías </span>
+                    <a href="entrenadores">
+                    <i class="fas fa-user-tie"></i>                     
+                        <span> Entrenadores </span>
                     </a>
                 </li>
                 
