@@ -52,6 +52,7 @@ class ControladorEntrenadores
                 "estado" => $_POST["estado"]
             ];
 
+            
             $respuesta = ModeloEntrenadores::mdlEditarEntrenadores($tabla, $datos);
 
             if ($respuesta == "ok") {
@@ -61,5 +62,6 @@ class ControladorEntrenadores
                 </script>';
             }
         }
+        
     }
 }

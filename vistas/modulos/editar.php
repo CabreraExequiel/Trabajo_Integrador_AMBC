@@ -48,6 +48,7 @@ $entrenadores = ControladorEntrenadores::ctrMostrarEntrenadores("id_entrenadores
                 ?>
 
                 <button class="btn btn-success" type="submit">Guardar</button>
+                
             </form>
         </div>
     </div>
