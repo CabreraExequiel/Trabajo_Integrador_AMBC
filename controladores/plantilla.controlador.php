@@ -9,6 +9,6 @@ class PlantillaControlador{
 
     static public function url(){
 
-        return "http://localhost/proyecto_final/";
+        return "http://localhost/TrabajoIntegradorABMC/";
     }
 }

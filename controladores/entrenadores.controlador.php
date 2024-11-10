@@ -59,7 +59,9 @@ class ControladorEntrenadores
                     fncSweetAlert("success", "El entrenador se editó correctamente", "entrenadores");
                     window.location = "entrenadores";
                 </script>';
+                
             }
         }
+        
     }
 }
