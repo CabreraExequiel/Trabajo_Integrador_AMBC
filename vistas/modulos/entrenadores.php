@@ -6,15 +6,16 @@ $entrenadores = ControladorEntrenadores::ctrMostrarEntrenadores(null, null);
 
     <div class="col-xl-12 mt-3">
     <!-- Botón para agregar un nuevo cliente -->
-    <a class="btn btn-dark" href="agregar">
+        <a class="btn btn-dark" href="agregar">
             <i class="fas fa-plus"></i> Agregar Entrenador
         </a>
 
         <div class="card mt-3">
             <div class="card-header">
                 <h1 class="card-title mb-0">Entrenadores</h1>
+            </div>
         </div><!-- end card header -->
-
+    </div>
 <div class="table-responsive">
     
     <table class="table table-hover mb-0">

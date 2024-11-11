@@ -31,9 +31,14 @@
                     <!-- item-->
                     <a href="auth-logout.html" class="dropdown-item notify-item">
                         <i class="mdi mdi-location-exit fs-16 align-middle"></i>
-                        <span>Logout</span>
-                    </a>
+                        <form action="controladores/usuarios.controlador.php" method="POST">
+                                            <input type="hidden" name="action" value="logout">
+                                                <button type="submit">Cerrar sesión</button>
+                                            
+                                        </form>
 
+                    </a>
+                    
                 </div>
             </li>
 
