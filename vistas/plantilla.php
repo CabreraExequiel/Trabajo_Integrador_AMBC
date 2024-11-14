@@ -60,6 +60,7 @@ $url = PlantillaControlador::url()
                             $pagina[0] == "editar" ||
                             $pagina[0] == "entrenadores" ||
                             $pagina[0] == "clientes" ||
+                            $pagina[0] == "especialidades" ||
                             $pagina[0] == "planEntrenamiento"
                             ) {
 
