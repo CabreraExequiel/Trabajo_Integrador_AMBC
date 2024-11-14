@@ -45,16 +45,8 @@ class ModeloEntrenadores
     static public function mdlEditarEntrenadores($tabla, $datos)
     {
         try {
-            $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET 
-                dni_entrenador = :dni,
-                nombre_entrenador = :nombre,
-                apellido_entrenador = :apellido,
-                telefono_entrenador = :telefono,
-                email_entrenador = :email,
-                especialidades = :especialidades,
-                fecha_contratacion = :fecha,
-                estado = :estado
-                WHERE id_entrenadores = :id_entrenadores");
+            $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(dni_entrenador, nombre_entrenador, apellido_entrenador, telefono_entrenador, email_entrenador, especialidades, fecha_contratacion, estado) VALUES (:dni, :nombre, :apellido, :telefono, :email, :especialidades, :fecha, :estado)");
+
 
             $stmt->bindParam(":dni", $datos["dni"], PDO::PARAM_STR);
             $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);

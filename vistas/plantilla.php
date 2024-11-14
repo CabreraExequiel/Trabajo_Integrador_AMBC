@@ -56,12 +56,12 @@ $url = PlantillaControlador::url()
 
                             if (
                             $pagina[0] == "inicio" ||                         
-                            $pagina[0] == "productos" ||
                             $pagina[0] == "agregar" ||
                             $pagina[0] == "editar" ||
                             $pagina[0] == "entrenadores" ||
                             $pagina[0] == "clientes" ||
-                            $pagina[0] == "especialidades"
+                            $pagina[0] == "especialidades" ||
+                            $pagina[0] == "planEntrenamiento"
                             ) {
 
                             include "vistas/modulos/" . $pagina[0] . ".php";

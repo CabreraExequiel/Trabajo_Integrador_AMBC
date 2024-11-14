@@ -39,7 +39,18 @@
                         <span> Entrenadores </span>
                     </a>
                 </li>
-                
+                <li>
+                    <a href="clientes">
+                    <i class="fas fa-user-tie"></i>                     
+                        <span> Clientes </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="planEntrenamiento">
+                    <i class="fas fa-user-tie"></i>                     
+                        <span> Plan de Entrenamiento </span>
+                    </a>
+                </li>
             </ul>
 
         </div>

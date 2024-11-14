@@ -1,5 +1,5 @@
 <?php
-$producto = ControladorProductos::ctrMostrarProductos(null, null);
+$entrenadores = ControladorEntrenadores::ctrMostrarEntrenadores(null, null);
 //echo "<pre>";
 //print_r($entrenadores);
 //echo "</pre>";
@@ -8,15 +8,15 @@ $producto = ControladorProductos::ctrMostrarProductos(null, null);
 <div class="col-lg-6 mt-3">
     <div class="card">
         <div class="card-header">
-            <h5 class="card-title mb-0">Agregar producto</h5>
+            <h5 class="card-title mb-0">Agregar entrenador</h5>
         </div><!-- end card header -->
 
         <div class="card-body">
-            <form method="POST" action="index.php?ruta=guardar-producto">
+            <form method="POST" action="index.php?ruta=guardar-entrenadores">
                 <!-- Nombre del Producto -->
                 <div class="mb-3">
-                    <label for="nombre_producto" class="form-label">Nombre</label>
-                    <input type="text" id="nombre_producto" name="nombre" class="form-control" placeholder="Nombre" required>
+                    <label for="nombre_entrenador" class="form-label">Nombre</label>
+                    <input type="text" id="nombre_entrenador" name="nombre" class="form-control" placeholder="Nombre" required>
                 </div>
                 
                 <!-- Precio del Producto -->
@@ -38,9 +38,9 @@ $producto = ControladorProductos::ctrMostrarProductos(null, null);
 
                     <option value="">Seleccione una opción</option>
                         <?php
-                        foreach ($producto as $key => $value) { ?>
+                        foreach ($entrenadores as $key => $value) { ?>
 
-                            <option value="<?php echo $value["id_producto"]; ?>"><?php echo $value["nombre"]; ?></option>
+                            <option value="<?php echo $value["id_entrenadores"]; ?>"><?php echo $value["nombre_entrenador"]; ?></option>
 
                         <?php  } ?>
 
