@@ -25,30 +25,36 @@
 
             <ul id="side-menu">
 
-                <li class="menu-title">Menu</li>
+                <li class="<?php echo $url?>menu-title">Menu</li>
 
                 <li>
-                    <a href="inicio">
+                    <a href="<?php echo $url?>inicio">
                         <i data-feather="home"></i>                     
                         <span> Dashboard </span>
                     </a>
                 </li>
                 <li>
-                    <a href="entrenadores">
+                    <a href="<?php echo $url?>entrenadores">
                     <i class="fas fa-user-tie"></i>                     
                         <span> Entrenadores </span>
                     </a>
                 </li>
                 <li>
-                    <a href="clientes">
+                    <a href="<?php echo $url?>clientes">
                     <i class="fas fa-user-tie"></i>                     
                         <span> Clientes </span>
                     </a>
                 </li>
                 <li>
-                    <a href="planEntrenamiento">
+                    <a href="<?php echo $url?>planEntrenamiento">
                     <i class="fas fa-user-tie"></i>                     
                         <span> Plan de Entrenamiento </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo $url?>especialidades">
+                    <i class="fas fa-user-tie"></i>                     
+                        <span> Especialidades </span>
                     </a>
                 </li>
             </ul>
