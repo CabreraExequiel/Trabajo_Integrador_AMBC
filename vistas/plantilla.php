@@ -58,15 +58,23 @@ $url = PlantillaControlador::url()
                             $pagina[0] == "inicio" ||                         
                             $pagina[0] == "agregar" ||
                             $pagina[0] == "editar" ||
+                            $pagina[0] == "editar-especialidad" ||
+                            $pagina[0] == "editar-clientes" ||
                             $pagina[0] == "entrenadores" ||
                             $pagina[0] == "clientes" ||
                             $pagina[0] == "especialidades" ||
                             $pagina[0] == "planEntrenamiento"
                             ) {
-
-                            include "vistas/modulos/" . $pagina[0] . ".php";
-
-                            }else{
+                                // If it's "editar-especialidad", include the corresponding file and pass the ID
+                                if ($pagina[0] == "editar-especialidad" && isset($pagina[1])) {
+                                    // Pass the ID from the URL
+                                    include("vistas/modulos/editar-especialidad.php");
+                                } else {
+                                    // Include the regular page
+                                    include "vistas/modulos/" . $pagina[0] . ".php";
+                                }
+                            } else {
+                                // Handle invalid pages
                                 include "vistas/modulos/404.php";
                             }
                         }
