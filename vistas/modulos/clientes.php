@@ -54,7 +54,7 @@ if (!is_array($clientes)) {
                                     <td><?php echo htmlspecialchars($value["estado_membresia"]); ?></td>
                                     <td>
                                         <!-- Botón para editar cliente -->
-                                        <a href="editar-cliente/<?php echo htmlspecialchars($value["id_cliente"]); ?>" class="btn btn-primary">
+                                        <a href="editar-clientes/<?php echo htmlspecialchars($value["id_cliente"]); ?>" class="btn btn-primary">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         <!-- Formulario para eliminar cliente -->

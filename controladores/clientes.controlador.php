@@ -51,7 +51,13 @@ class ControladorClientes
     /**
      * Método para editar un cliente
      */
-    public function ctrEditarCliente($id_cliente)
+
+     public static function ctrEditarCliente($id, $nombre_cliente, $apellido_cliente, $fecha_nac_cliente, $direccion_cliente, $telefono_cliente, $email_cliente, $plan_cliente, $estado_membresia) {
+        $datos = ["id_cliente" => $id, "nombre_cliente" => $nombre_cliente, "apellido_cliente" => $apellido_cliente, "fecha_nac_cliente" => $fecha_nac_cliente, "direccion_cliente" => $direccion_cliente, "telefono_cliente" => $telefono_cliente, "email_cliente" => $email_cliente, "plan_cliente" => $plan_cliente, "estado_membresia" => $estado_membresia];
+        return ModeloClientes::mdlEditarCliente("clientes", $datos);
+    }
+
+    public function ef($id_cliente)
     {
         if (isset($_POST["nombre_cliente"])) {
             $tabla = "clientes";
@@ -70,7 +76,7 @@ class ControladorClientes
             ];
 
             // Llamar al modelo para editar el cliente
-            $respuesta = ModeloClientes::mdlEditarClientes($tabla, $datos);
+            $respuesta = ModeloClientes::mdlEditarCliente($tabla, $datos);
 
             // Mostrar mensaje según el resultado
             $url = PlantillaControlador::url() . "clientes";

@@ -42,7 +42,7 @@ $planEntrenamiento = ControladorPlanEntrenamiento::ctrMostrarPlanEntrenamiento(n
                         <td><?php echo $value["sesiones_semanales_plan"] ?? 'Sin plan'; ?></td>
                         <td><?php echo $value["entrenador_plan"] ?? 'Sin entrenador'; ?></td>
                         <td>
-                            <a href="editar/<?php echo $value["id_plan"]; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                            <a href="editar-plan/<?php echo $value["id_plan"]; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                             <button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
