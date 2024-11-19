@@ -1,8 +1,9 @@
 <?php
-$entrenadores = ControladorEntrenadores::ctrMostrarEntrenadores(null, null);
-//echo "<pre>";
-//print_r($entrenadores);
-//echo "</pre>";
+
+
+// Llamar al método para agregar entrenadores
+$controladorEntrenadores = new ControladorEntrenadores();
+$controladorEntrenadores->ctrAgregarEntrenadores();
 ?>
 
 <div class="col-lg-6 mt-3">
@@ -12,44 +13,45 @@ $entrenadores = ControladorEntrenadores::ctrMostrarEntrenadores(null, null);
         </div><!-- end card header -->
 
         <div class="card-body">
-            <form method="POST" action="index.php?ruta=guardar-entrenadores">
-                <!-- Nombre del Producto -->
+            <form method="POST" action="">
+                <div class="mb-3">
+                    <label for="dni_entrenador" class="form-label">DNI</label>
+                    <input type="number" id="dni_entrenador" name="dni" class="form-control" placeholder="DNI" autocomplete="off" required>
+                </div>
                 <div class="mb-3">
                     <label for="nombre_entrenador" class="form-label">Nombre</label>
-                    <input type="text" id="nombre_entrenador" name="nombre" class="form-control" placeholder="Nombre" required>
+                    <input type="text" id="nombre_entrenador" name="nombre" class="form-control" placeholder="Nombre" autocomplete="given-name" required>
                 </div>
-                
-                <!-- Precio del Producto -->
                 <div class="mb-3">
-                    <label for="precio_producto" class="form-label">Precio</label>
-                    <input type="number" id="precio_producto" name="precio" class="form-control" placeholder="Precio" required>
+                    <label for="apellido_entrenador" class="form-label">Apellido</label>
+                    <input type="text" id="apellido_entrenador" name="apellido" class="form-control" placeholder="Apellido" autocomplete="family-name" required>
                 </div>
-                
-                <!-- Stock del Producto -->
                 <div class="mb-3">
-                    <label for="stock_producto" class="form-label">Stock</label>
-                    <input type="number" id="stock_producto" name="stock" class="form-control" placeholder="Stock" required>
+                    <label for="telefono_entrenador" class="form-label">Teléfono</label>
+                    <input type="number" id="telefono_entrenador" name="telefono" class="form-control" placeholder="Teléfono" autocomplete="tel" required>
                 </div>
-                
-                <!-- Categoría del Producto -->
                 <div class="mb-3">
-                    <label for="id_categoria" class="form-label">Categoría</label>
-                    <select name="id_categoria" id="id_categoria" class="form-control" required>
-
-                    <option value="">Seleccione una opción</option>
-                        <?php
-                        foreach ($entrenadores as $key => $value) { ?>
-
-                            <option value="<?php echo $value["id_entrenadores"]; ?>"><?php echo $value["nombre_entrenador"]; ?></option>
-
-                        <?php  } ?>
-
+                    <label for="email_entrenador" class="form-label">Email</label>
+                    <input type="email" id="email_entrenador" name="email" class="form-control" placeholder="Email" autocomplete="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="especialidades" class="form-label">Especialidades</label>
+                    <input type="text" id="especialidades" name="especialidades" class="form-control" placeholder="Especialidades" autocomplete="off" required>
+                </div>
+                <div class="mb-3">
+                    <label for="fecha_contratacion" class="form-label">Fecha de Contratación</label>
+                    <input type="date" id="fecha_contratacion" name="fecha_contratacion" class="form-control" autocomplete="off" required>
+                </div>
+                <div class="mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <select id="estado" name="estado" class="form-control" autocomplete="off" required>
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
                     </select>
                 </div>
-                
-                <!-- Botón de Guardar -->
                 <button class="btn btn-success" type="submit">Guardar</button>
             </form>
+
         </div>
     </div>
 </div>
