@@ -4,6 +4,9 @@ require_once 'conexion.php';
 
 class ModeloEntrenadores
 {
+    /*=============================================
+    MOSTRAR DATOS
+    =============================================*/
     static public function mdlMostrarEntrenadores($tabla, $item, $valor)
     {
         try {
@@ -22,6 +25,9 @@ class ModeloEntrenadores
         }
     }
 
+    /*=============================================
+    AGREGAR DATOS
+    =============================================*/
     static public function mdlAgregarEntrenadores($tabla, $datos)
     {
         try {
@@ -42,25 +48,26 @@ class ModeloEntrenadores
         }
     }
 
-    static public function mdlEditarEntrenadores($tabla, $datos)
-    {
-        try {
-            $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(dni_entrenador, nombre_entrenador, apellido_entrenador, telefono_entrenador, email_entrenador, especialidades, fecha_contratacion, estado) VALUES (:dni, :nombre, :apellido, :telefono, :email, :especialidades, :fecha, :estado)");
-
-
-            $stmt->bindParam(":dni", $datos["dni"], PDO::PARAM_STR);
-            $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
-            $stmt->bindParam(":apellido", $datos["apellido"], PDO::PARAM_STR);
-            $stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
-            $stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
-            $stmt->bindParam(":especialidades", $datos["especialidades"], PDO::PARAM_STR);
-            $stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
-            $stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_STR);
-            $stmt->bindParam(":id_entrenadores", $datos["id_entrenadores"], PDO::PARAM_INT);
-
-            return $stmt->execute() ? "ok" : "error";
-        } catch (Exception $e) {
-            return "Error: " . $e->getMessage();
+    /*=============================================
+    EDITAR DATOS
+    =============================================*/
+    public static function mdlEditarEntrenador($tabla, $id, $dni, $nombre, $apellido, $telefono, $email, $especialidades, $fecha_contratacion, $estado) {
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET dni_entrenador = :dni, nombre_entrenador = :nombre, apellido_entrenador = :apellido, telefono_entrenador = :telefono, email_entrenador = :email, especialidades = :especialidades, fecha_contratacion = :fecha_contratacion, estado = :estado WHERE id_entrenadores = :id");
+    
+        $stmt->bindParam(":dni", $dni, PDO::PARAM_STR);
+        $stmt->bindParam(":nombre", $nombre, PDO::PARAM_STR);
+        $stmt->bindParam(":apellido", $apellido, PDO::PARAM_STR);
+        $stmt->bindParam(":telefono", $telefono, PDO::PARAM_STR);
+        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+        $stmt->bindParam(":especialidades", $especialidades, PDO::PARAM_STR);
+        $stmt->bindParam(":fecha_contratacion", $fecha_contratacion, PDO::PARAM_STR);
+        $stmt->bindParam(":estado", $estado, PDO::PARAM_STR);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+    
+        if ($stmt->execute()) {
+            return true; // Successfully updated
+        } else {
+            return false; // Error in updating
         }
-    }
+    }    
 }
