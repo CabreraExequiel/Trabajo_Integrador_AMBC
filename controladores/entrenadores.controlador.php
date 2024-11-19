@@ -2,32 +2,14 @@
 
 class ControladorEntrenadores
 {
-    // Mostrar entrenadores
+
     static public function ctrMostrarEntrenadores($item, $valor)
     {
         $tabla = "entrenadores";
-        $respuesta = ModeloEntrenadores::mdlMostrarEntrenadores($tabla, $item, $valor);
-        return $respuesta;
+        return ModeloEntrenadores::mdlMostrarEntrenadores($tabla, $item, $valor);
     }
 
-    // Método genérico para editar diferentes módulos
-    public function ctrEditar($modulo)
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            switch ($modulo) {
-                case 'entrenadores':
-                    return ModeloEntrenadores::mdlEditarEntrenador($_POST);
-                case 'clientes':
-                    return ModeloClientes::mdlEditarCliente($_POST);
-                case 'planes':
-                    return ModeloPlanEntrenamiento::mdlEditarPlan($_POST);
-                default:
-                    return null; // Manejo de error si el módulo no es válido
-            }
-        }
-    }
 
-    // Agregar entrenadores
     public function ctrAgregarEntrenadores()
     {
         if (isset($_POST["nombre"])) {
@@ -53,42 +35,25 @@ class ControladorEntrenadores
             }
         }
     }
-    
 
-    public function ctrEditarEntrenadores() {
-        
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $id_entrenadores = $_POST["id_entrenadores"] ?? null;
+    public static function ctrEditarEntrenador($id, $dni, $nombre, $apellido, $telefono, $email, $especialidades, $fecha_contratacion, $estado) {
+        // Call the model to update the database
+        $tabla = "entrenadores";  // Name of the table
     
-            // Verificar que el ID no sea nulo y que exista en la base de datos
-            if (!$id_entrenadores || !ModeloEntrenadores::mdlVerificarEntrenador($id_entrenadores)) {
-                echo "<script>alert('ID del entrenador no válido');</script>";
-                return;
-            }
+        // Update query
+        $resultado = ModeloEntrenadores::mdlEditarEntrenador(
+            $tabla, 
+            $id, 
+            $dni, 
+            $nombre, 
+            $apellido, 
+            $telefono, 
+            $email, 
+            $especialidades, 
+            $fecha_contratacion, 
+            $estado
+        );
     
-            // Continuar con los datos del formulario
-            $datos = [
-                "id_entrenadores" => $id_entrenadores,
-                "nombre" => $_POST["nombre"],
-                "apellido" => $_POST["apellido"],
-                "dni" => $_POST["dni"],
-                "telefono" => $_POST["telefono"],
-                "email" => $_POST["email"],
-                "especialidades" => $_POST["especialidades"],
-                "estado" => $_POST["estado"]
-            ];
-    
-            $respuesta = ModeloEntrenadores::mdlEditarEntrenador($datos);
-    
-            if ($respuesta === "ok") {
-                echo "<script>
-                    alert('Entrenador actualizado correctamente');
-                    window.location = 'lista_entrenadores'; // Cambiar a la página deseada
-                </script>";
-            } else {
-                echo "<script>alert('Hubo un error al actualizar el entrenador');</script>";
-            }
-        }
-    }
-    
+        return $resultado;
+    }    
 }

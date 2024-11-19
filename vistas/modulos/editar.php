@@ -50,3 +50,4 @@ $entrenadores = ControladorEntrenadores::ctrMostrarEntrenadores("id_entrenadores
         </div>
     </div>
 </div>
+
