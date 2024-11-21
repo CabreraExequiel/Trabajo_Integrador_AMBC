@@ -56,7 +56,10 @@ $url = PlantillaControlador::url()
 
                             if (
                             $pagina[0] == "inicio" ||                         
-                            $pagina[0] == "agregar" ||
+                            $pagina[0] == "agregar-entrenadores" ||
+                            $pagina[0] == "agregar-clientes" ||
+                            $pagina[0] == "agregar-plan" ||
+                            $pagina[0] == "agregar-especialidades" ||
                             $pagina[0] == "editar-entrenadores" ||
                             $pagina[0] == "editar-especialidad" ||
                             $pagina[0] == "editar-clientes" ||

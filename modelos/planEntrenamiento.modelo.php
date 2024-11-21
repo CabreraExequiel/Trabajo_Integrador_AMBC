@@ -24,6 +24,27 @@ class ModeloPlanEntrenamiento
         }
     }
 
+    public static function mdlAgregarPlanEntrenamiento($tabla, $datos) {
+        // Conexión a la base de datos
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (nombre_plan, descripcion_plan, codigo, duracion_semanas_plan, sesiones_semanales_plan, entrenador_plan) VALUES (:nombre_plan, :descripcion_plan, :codigo, :duracion_semanas_plan, :sesiones_semanales_plan, :entrenador_plan)");
+    
+        // Vincular los parámetros
+        $stmt->bindParam(":nombre_plan", $datos["nombre_plan"], PDO::PARAM_STR);
+        $stmt->bindParam(":descripcion_plan", $datos["descripcion_plan"], PDO::PARAM_STR);
+        $stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
+        $stmt->bindParam(":duracion_semanas_plan", $datos["duracion_semanas_plan"], PDO::PARAM_INT);
+        $stmt->bindParam(":sesiones_semanales_plan", $datos["sesiones_semanales_plan"], PDO::PARAM_INT);
+        $stmt->bindParam(":entrenador_plan", $datos["entrenador_plan"], PDO::PARAM_INT);
+    
+        // Ejecutar la consulta y verificar si se insertó correctamente
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+
     public static function mdlEditarPlanEntrenamiento($tabla, $id_plan, $nombre_plan, $descripcion_plan, $codigo, $duracion_semanas_plan, $sesiones_semanales_plan, $entrenador_plan) {
         // Update query with the correct column names
         $stmt = Conexion::conectar()->prepare("UPDATE $tabla 

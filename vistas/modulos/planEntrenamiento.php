@@ -6,7 +6,7 @@ $planEntrenamiento = ControladorPlanEntrenamiento::ctrMostrarPlanEntrenamiento(n
 
 <div class="col-xl-12 mt-3">
     <!-- Botón para agregar un nuevo cliente -->
-    <a class="btn btn-dark" href="index.php?ruta=agregar">
+    <a class="btn btn-dark" href="agregar-plan">
         <i class="fas fa-plus"></i> Agregar Plan
     </a>
     <div class="card mt-3">

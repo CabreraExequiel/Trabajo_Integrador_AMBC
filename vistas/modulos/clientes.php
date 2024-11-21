@@ -11,7 +11,7 @@ if (!is_array($clientes)) {
 ?>
 <div class="col-xl-12 mt-3">
     <!-- Botón para agregar un nuevo cliente -->
-    <a class="btn btn-dark" href="index.php?ruta=agregar-cliente">
+    <a class="btn btn-dark" href="agregar-clientes">
         <i class="fas fa-plus"></i> Agregar Cliente
     </a>
 

@@ -28,25 +28,28 @@ class ModeloEntrenadores
     /*=============================================
     AGREGAR DATOS
     =============================================*/
-    static public function mdlAgregarEntrenadores($tabla, $datos)
-    {
+    public static function mdlAgregarEntrenador($tabla, $dni, $nombre, $apellido, $telefono, $email, $especialidades, $fecha_contratacion, $estado) {
         try {
-            $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(dni_entrenadores, nombre_entrenador, apellido_entrenador, telefono_entrenador, email_entrenador, especialidades, fecha_contratacion, estado) VALUES (:dni, :nombre, :apellido, :telefono, :email, :especialidades, :fecha, :estado)");
-
-            $stmt->bindParam(":dni", $datos["dni"], PDO::PARAM_STR);
-            $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
-            $stmt->bindParam(":apellido", $datos["apellido"], PDO::PARAM_STR);
-            $stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
-            $stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
-            $stmt->bindParam(":especialidades", $datos["especialidades"], PDO::PARAM_STR);
-            $stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
-            $stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_STR);
-
-            return $stmt->execute() ? "ok" : "error";
+            $stmt = Conexion::conectar()->prepare(
+                "INSERT INTO $tabla (dni_entrenador, nombre_entrenador, apellido_entrenador, telefono_entrenador, email_entrenador, especialidades, fecha_contratacion, estado) 
+                 VALUES (:dni, :nombre, :apellido, :telefono, :email, :especialidades, :fecha_contratacion, :estado)"
+            );
+    
+            $stmt->bindParam(":dni", $dni, PDO::PARAM_STR);
+            $stmt->bindParam(":nombre", $nombre, PDO::PARAM_STR);
+            $stmt->bindParam(":apellido", $apellido, PDO::PARAM_STR);
+            $stmt->bindParam(":telefono", $telefono, PDO::PARAM_STR);
+            $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+            $stmt->bindParam(":especialidades", $especialidades, PDO::PARAM_STR);
+            $stmt->bindParam(":fecha_contratacion", $fecha_contratacion, PDO::PARAM_STR);
+            $stmt->bindParam(":estado", $estado, PDO::PARAM_STR);
+    
+            return $stmt->execute();
         } catch (Exception $e) {
-            return "Error: " . $e->getMessage();
+            return false;
         }
     }
+    
 
     /*=============================================
     EDITAR DATOS

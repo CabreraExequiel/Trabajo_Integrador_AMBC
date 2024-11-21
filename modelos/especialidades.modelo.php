@@ -23,10 +23,15 @@ class ModeloEspecialidades {
     /*=============================================
     AGREGAR ESPECIALIDAD
     =============================================*/
-    public static function mdlAgregarEspecialidad($tabla, $datos) {
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (nombre_especialidad) VALUES (:nombre_especialidad)");
-        $stmt->bindParam(":nombre_especialidad", $datos["nombre_especialidad"], PDO::PARAM_STR);
-        return $stmt->execute();
+    public static function mdlAgregarEspecialidad($nombre_especialidad) {
+        $stmt = Conexion::conectar()->prepare("INSERT INTO especialidades (nombre_especialidad) VALUES (:nombre_especialidad)");
+        $stmt->bindParam(":nombre_especialidad", $nombre_especialidad, PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /*=============================================

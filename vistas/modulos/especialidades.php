@@ -12,7 +12,7 @@ if (!is_array($especialidades)) {
 
 <div class="col-xl-12 mt-3">
     <!-- Botón para agregar nueva especialidad -->
-    <a class="btn btn-dark" href="index.php?ruta=agregar-especialidad">
+    <a class="btn btn-dark" href="agregar-especialidades">
         <i class="fas fa-plus"></i> Agregar Especialidad
     </a>
 

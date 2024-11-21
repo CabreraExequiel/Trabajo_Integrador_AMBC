@@ -15,9 +15,11 @@ class ControladorEspecialidades {
     AGREGAR ESPECIALIDAD
     =============================================*/
     public static function ctrAgregarEspecialidad($nombre_especialidad) {
-        $datos = ["nombre_especialidad" => $nombre_especialidad];
-        return ModeloEspecialidades::mdlAgregarEspecialidad("especialidades", $datos);
+        $respuesta = ModeloEspecialidades::mdlAgregarEspecialidad($nombre_especialidad);
+        return $respuesta;
     }
+
+    
 
     /*=============================================
     EDITAR ESPECIALIDAD

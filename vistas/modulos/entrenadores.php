@@ -14,7 +14,7 @@ if (!is_array($entrenadores)) {
 
 <div class="col-xl-12 mt-3">
     <!-- Button to add a new trainer -->
-    <a class="btn btn-dark" href="index.php?ruta=agregar-entrenador">
+    <a class="btn btn-dark" href="agregar-entrenadores">
         <i class="fas fa-plus"></i> Agregar Entrenador
     </a>
 

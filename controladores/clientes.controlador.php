@@ -15,37 +15,22 @@ class ControladorClientes
     /**
      * Método para agregar un nuevo cliente
      */
-    public function ctrAgregarCliente()
-    {
-        if (isset($_POST["nombre_cliente"])) {
-            $tabla = "clientes";
+    public static function ctrAgregarCliente($nombre, $apellido, $fecha_nac, $direccion, $telefono, $email, $fecha_inscrip, $plan, $estado) {
+        $tabla = "clientes";
+        $datos = array(
+            "nombre_cliente" => $nombre,
+            "apellido_cliente" => $apellido,
+            "fecha_nac_cliente" => $fecha_nac,
+            "direccion_cliente" => $direccion,
+            "telefono_cliente" => $telefono,
+            "email_cliente" => $email,
+            "fecha_inscrip_cliente" => $fecha_inscrip,
+            "plan_cliente" => $plan,
+            "estado_membresia" => $estado
+        );
 
-            // Sanitizar entradas
-            $datos = [
-                "nombre_cliente" => htmlspecialchars($_POST["nombre_cliente"]),
-                "apellido_cliente" => htmlspecialchars($_POST["apellido_cliente"]),
-                "fecha_nac_cliente" => htmlspecialchars($_POST["fecha_nac_cliente"]),
-                "direccion_cliente" => htmlspecialchars($_POST["direccion_cliente"]),
-                "telefono_cliente" => htmlspecialchars($_POST["telefono_cliente"]),
-                "email_cliente" => htmlspecialchars($_POST["email_cliente"]),
-                "fecha_inscrip_cliente" => date("Y-m-d"), // Fecha actual
-                "plan_cliente" => htmlspecialchars($_POST["plan_cliente"]),
-                "estado_membresia" => htmlspecialchars($_POST["estado_membresia"])
-            ];
-
-            $url = PlantillaControlador::url() . "clientes";
-            $respuesta = ModeloClientes::mdlAgregarClientes($tabla, $datos);
-
-            if ($respuesta == "ok") {
-                echo "<script>
-                        fncSweetAlert('success', 'El cliente se agregó correctamente', '$url');
-                      </script>";
-            } else {
-                echo "<script>
-                        fncSweetAlert('error', 'Hubo un problema al agregar el cliente', '$url');
-                      </script>";
-            }
-        }
+        $respuesta = ModeloClientes::mdlAgregarCliente($tabla, $datos);
+        return $respuesta;
     }
 
     /**

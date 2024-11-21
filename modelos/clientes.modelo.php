@@ -28,25 +28,20 @@ class ModeloClientes
     /*=============================================
     AGREGAR DATOS
     =============================================*/
-    static public function mdlAgregarClientes($tabla, $datos)
-    {
-        try {
-            $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre_cliente, apellido_cliente, fecha_nac_cliente, direccion_cliente, telefono_cliente, email_cliente, fecha_inscrip_cliente, plan_cliente, estado_membresia) VALUES (:nombre, :apellido, :fecha_nac, :direccion, :telefono, :email, :fecha_inscrip, :plan, :estado)");
+    public static function mdlAgregarCliente($tabla, $datos) {
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (nombre_cliente, apellido_cliente, fecha_nac_cliente, direccion_cliente, telefono_cliente, email_cliente, fecha_inscrip_cliente, plan_cliente, estado_membresia) VALUES (:nombre_cliente, :apellido_cliente, :fecha_nac_cliente, :direccion_cliente, :telefono_cliente, :email_cliente, :fecha_inscrip_cliente, :plan_cliente, :estado_membresia)");
 
-            $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
-            $stmt->bindParam(":apellido", $datos["apellido"], PDO::PARAM_STR);
-            $stmt->bindParam(":fecha_nac", $datos["fecha_nac"], PDO::PARAM_STR);
-            $stmt->bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
-            $stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
-            $stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
-            $stmt->bindParam(":fecha_inscrip", $datos["fecha_inscrip"], PDO::PARAM_STR);
-            $stmt->bindParam(":plan", $datos["plan"], PDO::PARAM_STR);
-            $stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_STR);
+        $stmt->bindParam(":nombre_cliente", $datos["nombre_cliente"], PDO::PARAM_STR);
+        $stmt->bindParam(":apellido_cliente", $datos["apellido_cliente"], PDO::PARAM_STR);
+        $stmt->bindParam(":fecha_nac_cliente", $datos["fecha_nac_cliente"], PDO::PARAM_STR);
+        $stmt->bindParam(":direccion_cliente", $datos["direccion_cliente"], PDO::PARAM_STR);
+        $stmt->bindParam(":telefono_cliente", $datos["telefono_cliente"], PDO::PARAM_STR);
+        $stmt->bindParam(":email_cliente", $datos["email_cliente"], PDO::PARAM_STR);
+        $stmt->bindParam(":fecha_inscrip_cliente", $datos["fecha_inscrip_cliente"], PDO::PARAM_STR);
+        $stmt->bindParam(":plan_cliente", $datos["plan_cliente"], PDO::PARAM_STR);
+        $stmt->bindParam(":estado_membresia", $datos["estado_membresia"], PDO::PARAM_STR);
 
-            return $stmt->execute() ? "ok" : "error";
-        } catch (Exception $e) {
-            return "Error: " . $e->getMessage();
-        }
+        return $stmt->execute();
     }
 
     /*=============================================
