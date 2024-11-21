@@ -64,10 +64,13 @@ $url = PlantillaControlador::url()
                             $pagina[0] == "editar-especialidad" ||
                             $pagina[0] == "editar-clientes" ||
                             $pagina[0] == "editar-plan" ||
+                            $pagina[0] == "editar-pago" ||
+                            $pagina[0] == "agregar-pago" ||
                             $pagina[0] == "entrenadores" ||
                             $pagina[0] == "clientes" ||
                             $pagina[0] == "especialidades" ||
-                            $pagina[0] == "planEntrenamiento"
+                            $pagina[0] == "planEntrenamiento" ||
+                            $pagina[0] == "pagos"
                             ) {
 
 

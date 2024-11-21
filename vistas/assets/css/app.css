@@ -14902,3 +14902,7 @@ body.loading {
   top: -6px;
   left: -20px;
 }
+select{
+  width: 100px;
+  height: 10px;
+}

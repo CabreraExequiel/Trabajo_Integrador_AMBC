@@ -72,14 +72,7 @@ $cliente = ControladorClientes::ctrMostrarClientes("id_cliente", $pagina[1]);
                            class="form-control" placeholder="Plan" required>
                 </div>
 
-                <div class="mb-3">
-                    <label for="estado_membresia" class="form-label">Estado de Membresía</label>
-                    <input type="text" 
-                           value="<?php echo isset($_POST['estado_membresia']) ? htmlspecialchars($_POST['estado_membresia']) : htmlspecialchars($cliente['estado_membresia']); ?>" 
-                           id="estado_membresia" name="estado_membresia" 
-                           class="form-control" placeholder="Estado de Membresía" required>
-                </div>
-
+             
                 <?php
                 // Only call ctrEditarCliente if the form is submitted
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -93,7 +86,7 @@ $cliente = ControladorClientes::ctrMostrarClientes("id_cliente", $pagina[1]);
                         $_POST['telefono_cliente'],
                         $_POST['email_cliente'],
                         $_POST['plan_cliente'],
-                        $_POST['estado_membresia']
+                        
                     );
                 }
                 ?>

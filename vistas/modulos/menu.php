@@ -57,6 +57,12 @@
                         <span> Especialidades </span>
                     </a>
                 </li>
+                <li>
+                    <a href="<?php echo $url?>pagos">
+                    <i class="fas fa-user-tie"></i>                     
+                        <span> Pagos </span>
+                    </a>
+                </li>
             </ul>
 
         </div>
